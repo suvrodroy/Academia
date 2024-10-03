@@ -1,0 +1,3 @@
+C:/Users/Suvro Dev Roy/CLionProjects/Academia/cmake-build-debug/CMakeFiles/Academia.dir
+C:/Users/Suvro Dev Roy/CLionProjects/Academia/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Suvro Dev Roy/CLionProjects/Academia/cmake-build-debug/CMakeFiles/rebuild_cache.dir

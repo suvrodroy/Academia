@@ -1,0 +1,16 @@
+# ninja log v5
+10	474	7476504788742492	CMakeFiles/Academia.dir/Multiple.cpp.obj	ae3e4a883c1c83cd
+7	2185	7476504805899131	CMakeFiles/Academia.dir/heirarchical.cpp.obj	b44efa9c609e6b7a
+1648	1713	7482541685159801	Academia.exe	865a68422529c8a7
+13	2138	7476504805411912	CMakeFiles/Academia.dir/Hybrid.cpp.obj	ee412c2debf9340b
+0	2134	7476504805371616	CMakeFiles/Academia.dir/main2.cpp.obj	6d749cbdacc41b4a
+1	105	7484708962456270	build.ninja	5d90ab6bef6daaa6
+2	1416	7482001811754447	CMakeFiles/Academia.dir/Circular_Queue_implementation..cpp.obj	632261c0576bc04a
+2	323	7477376053342925	CMakeFiles/Academia.dir/OOP_Module_5.cpp.obj	59770868c3809df8
+1	1881	7477384668403793	CMakeFiles/Academia.dir/OOP_Module_5_exception_handling.cpp.obj	6994c846ac9db16
+0	1499	7477420894655608	CMakeFiles/Academia.dir/OOP_Module_5_Template.cpp.obj	983c29cc11a20401
+3	1648	7482541684510130	CMakeFiles/Academia.dir/Selection_sort_algo.cpp.obj	e7c2a3838693afa4
+3	2027	7487978440992733	CMakeFiles/Academia.dir/Selection_sort_algo.cpp.obj	e7c2a3838693afa4
+2027	2252	7487978443233389	Academia.exe	865a68422529c8a7
+3	1879	7487980246620616	CMakeFiles/Academia.dir/Selection_sort_algo.cpp.obj	e7c2a3838693afa4
+1879	1948	7487980247282422	Academia.exe	865a68422529c8a7
