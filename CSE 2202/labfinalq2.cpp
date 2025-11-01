@@ -1,33 +1,51 @@
 #include "bits/stdc++.h"
 using namespace std;
-
-// #pragma GCC optimize("O3,unroll-loops")
-// #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
-
-#define int long long
-#define dub long double
-typedef vector<int> vint;
-typedef vector<string> vstr;
-typedef pair<int,int> pii;
-typedef vector<pii> vii;
-typedef unordered_map<int,int> umap;
-#define rep(i,j,k) for(int i=j;i<k;i++)
-#define all(a) a.begin(),a.end()
-#define endl '\n'
-#define INF 2147483647
-//#define INF 9223372036854775807
-#define null '\0'
-const int N = 1e5 + 10, Mod = 1e9 + 7;
 int n,m;
-void solve(){
+vector<int> parent, Size;
+
+int find_set(int v) {
+    if (v == parent[v])
+        return v;
+    return parent[v] = find_set(parent[v]);
 }
-signed main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    int test_n = 1;
-    cin>>test_n;
-    for(int t_c = 1;t_c <= test_n;t_c ++){
-        solve();
+void union_sets(int a, int b) {
+    a = find_set(a);
+    b = find_set(b);
+    if (a != b) {
+        if (Size[a] < Size[b])
+            swap(a, b);
+        parent[b] = a;
+        Size[a] += Size[b];
     }
-    return 0;
+}
+struct Edge {
+    int u, v, weight;
+    bool operator<(Edge const& other) {
+        return weight < other.weight;
+    }
+};
+signed main(){
+    cin >> n >> m;
+    vector<Edge> edges;
+    int a,b,c;
+    while (m--){
+        cin >> a >> b >> c;
+        edges.push_back({a,b,c});
+    }
+    int cost = 0;
+    vector<Edge> result;
+    parent.resize(n+1);
+    Size.resize(n+1);
+    for (int i = 0; i <= n; i++)
+        parent[i] = i, Size[i] = 0;
+    sort(edges.begin(), edges.end());
+    for (Edge e : edges) {
+        if (find_set(e.u) != find_set(e.v)) {
+            cost += e.weight;
+            result.push_back(e);
+            union_sets(e.u, e.v);
+        }
+    }
+    cout << "Edges in MST:\n";
+    for (auto i : result) cout << i.u << " " << i.v << endl;
 }
