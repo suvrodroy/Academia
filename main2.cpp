@@ -1,77 +1,45 @@
 #include "bits/stdc++.h"
-using namespace  std;
-class A{
-private:
-    int x = 3;
-protected:
-    int y = 5;
-public:
-    int z = 7;
-    int get_x(){ return x;}
-    int get_y(){return y;}
-    int get_z(){return z;}
-};
-class B : public A{
-public:
-    void show_inheritance(){
-        cout << "Direct Access\n";
-//        cout << "accessing x = " << x << endl;
-        cout << "accessing y = " << y << endl;
-        cout << "accessing z = " << z << endl;
-        cout <<"Using methods\n";
-        cout << "accessing x = " << get_x() << endl;
-        cout << "accessing y = " << get_y() << endl;
-        cout << "accessing z = " << get_z() << endl;
+using namespace std;
+
+#define int long long
+#define rep(i,j,k) for(int i=j;i<k;i++)
+#define endl '\n'
+
+void radix_sort(int arr[], int n) {
+    int div = 1;
+    const int base = 10;
+    int max_digits = 4;
+    vector<int> fre[base];
+
+    while (max_digits--) {
+        rep(i, 0, n) {
+            int digit = (arr[i] / div) % base;
+            fre[digit].push_back(arr[i]);
+        }
+        int j = 0;
+        rep(i, 0, base) {
+            for (int x : fre[i]) {
+                arr[j++] = x;
+            }
+            fre[i].clear();
+        }
+
+        div *= base;
     }
-};
-class C : protected A{
-public:
-    void show_inheritance(){
-        cout << "Direct Access\n";
-//        cout << "accessing x = " << x << endl;
-        cout << "accessing y = " << y << endl;
-        cout << "accessing z = " << z << endl;
-        cout <<"Using methods\n";
-        cout << "accessing x = " << get_x() << endl;
-        cout << "accessing y = " << get_y() << endl;
-        cout << "accessing z = " << get_z() << endl;
-    }
-};
-class D : private A{
-public:
-    void show_inheritance(){
-        cout << "Direct Access\n";
-//        cout << "accessing x = " << x << endl;
-        cout << "accessing y = " << y << endl;
-        cout << "accessing z = " << z << endl;
-        cout <<"Using methods\n";
-        cout << "accessing x = " << get_x() << endl;
-        cout << "accessing y = " << get_y() << endl;
-        cout << "accessing z = " << get_z() << endl;
-    }
-};
-int main(){
-    B b;
-    C c;
-    D d;
-    cout << "Accessing members of B\n";
-//    cout << b.x << endl;
-//    cout << b.y << endl;
-    cout << b.z << endl;
-    cout << "Inheritance of A in B\n";
-    b.show_inheritance();
-    //
-    cout << "Accessing members of C\n";
-//    cout << c.x << endl;
-//    cout << c.y << endl;
-//    cout << c.z << endl;
-    cout << "Inheritance of A in C\n";
-    b.show_inheritance();
-    //
-    cout << "Accessing members of D\n";
-//    cout << d.x << endl;
-//    cout << d.y << endl;
-//    cout << d.z << endl;
-    cout << "Inheritance of A in D\n";
-    b.show_inheritance();
+}
+
+void solve() {
+    int n = 10;
+    int arr[] = {10, 6, 2, 123, 14, 50, 33, 6, 10, 14};
+    
+    radix_sort(arr, n);
+
+    cout << "The result: ";
+    rep(i, 0, n) cout << arr[i] << " ";
+    cout << endl;
+}
+
+signed main() {
+    solve();
+    return 0;
 }

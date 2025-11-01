@@ -4,8 +4,12 @@ int callCount = 0;
 int itCount = 0;
 int partition(int a[], int low, int high)
 {
+
+    int pivotIndex = low + rand() % (high - low + 1);
+    swap(a[pivotIndex], a[high]);
+    
     int pivot = a[high];
-    int i = low ;
+    int i = low;
 
     for (int j = low; j < high; j++) {
         itCount++;
@@ -14,10 +18,10 @@ int partition(int a[], int low, int high)
             i++;
         }
     }
-
     swap(a[i], a[high]);
     return i;
 }
+
 void QuickSort(int a[], int low, int high)
 {
     callCount++;
@@ -30,7 +34,7 @@ void QuickSort(int a[], int low, int high)
 int main()
 {
     int n = 10;
-    int a[n] = {10,9,8,7,6,5,4,3,2,1};
+    int a[n] = {1,2,3,4,5,6,7,8,9,10};
     QuickSort(a,0,n-1);
     for(int i=0;i<n;i++)
         cout<<a[i]<<" ";

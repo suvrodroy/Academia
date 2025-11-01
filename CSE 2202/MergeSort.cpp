@@ -9,16 +9,18 @@ typedef long double ld;
 
 void Merge(int *a, int low, int high, int mid,int n);
 void MergeSort(int *a,int low, int high, int n);
+int callCount = 0;
 int main()
 {
-    int n = 5;
-    int a[n] = {4,1,0,9,5};
+    int n = 10;
+    int a[n] = {3,1,0,9,5,2,4,10,7,6};
     MergeSort(a,0,n-1,n);
     for(int i=0;i<n;i++)
         cout<<a[i]<<" ";
     cout<<endl;
+    cout << callCount << endl;
 }
-void Merge(int *a, int low, int high, int mid,int n)
+void merge(int *a, int low, int high, int mid,int n)
 {
     //cout<<"im at merge\n";
     int c[n];
@@ -53,11 +55,12 @@ void Merge(int *a, int low, int high, int mid,int n)
 }
 void MergeSort(int *a,int low, int high, int n)
 {
-    //cout<<"im at mergeSort\n";
+    callCount++;
+    //cout<<"im at MergeSort\n";
     int mid = low + (high-low)/2;
     if (low<high){
-        mergeSort(a,low,mid,n);
-        mergeSort(a,mid+1,high,n);
+        MergeSort(a,low,mid,n);
+        MergeSort(a,mid+1,high,n);
         merge(a,low,high,mid,n);
     }
 }
