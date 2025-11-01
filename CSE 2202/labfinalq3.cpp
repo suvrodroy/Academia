@@ -22,7 +22,7 @@ int n,m;
 int dp[N];
 int f(int wt, vint &a)
 {
-    if (wt == 0) return 0;
+    if (wt == 0) return dp[wt] = 0;
     if (dp[wt] != -1) return dp[wt];
     int ans = INF;
     for (auto w : a)
@@ -43,6 +43,7 @@ void solve(){
     {
         for (auto w : a)
         {
+            if (w > m) continue;
             if (dp[m - w] + 1 == dp[m])
             {
                 coins.push_back(w);
@@ -58,9 +59,15 @@ signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     int test_n = 1;
-    cin>>test_n;
+    // cin>>test_n;
     for(int t_c = 1;t_c <= test_n;t_c ++){
         solve();
     }
     return 0;
 }
+/**
+3 11
+1 5 7
+3 11
+1 5 12
+**/
