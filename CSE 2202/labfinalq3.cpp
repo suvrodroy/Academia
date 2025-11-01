@@ -39,6 +39,11 @@ void solve(){
     rep(i,0,n) cin >> a[i];
     f(m, a);
     vint coins;
+    if (dp[m] >= INF)
+    {
+        cout << "Failure to dispense change\n" << endl;
+        return;
+    }
     while (m > 0)
     {
         for (auto w : a)
@@ -59,15 +64,18 @@ signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     int test_n = 1;
-    // cin>>test_n;
+    cin>>test_n;
     for(int t_c = 1;t_c <= test_n;t_c ++){
         solve();
     }
     return 0;
 }
 /**
+3
 3 11
 1 5 7
 3 11
 1 5 12
+3 11
+12 7 8
 **/

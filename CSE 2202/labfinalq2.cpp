@@ -50,7 +50,7 @@ bool union_set(int u,int v)
 void solve(){
     cin >>n >> m;
     per.resize(n+1);
-    sz.resize(n+1);
+    sz.resize(n+1,1);
     iota(all(per), 0);
     rep(i,0,n) per[i+1] = i + 1;
     vector<Edge> edges(m),res;
